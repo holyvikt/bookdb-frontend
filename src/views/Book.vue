@@ -26,14 +26,12 @@
 
 <script>
 import api from "../api/api";
-import config from "../config";
 
 export default {
   name: "Book",
   data() {
     return {
       book: {},
-      bookImage: null
     };
   },
   created() {
@@ -43,7 +41,7 @@ export default {
   },
   computed: {
     imageUrl() {
-      return `${config.apiUrl}/books/${this.$route.params.book}/image`;
+      return api.getImageUrl(this.$route.params.book);
     },
   },
 };

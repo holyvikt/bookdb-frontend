@@ -23,9 +23,8 @@
       >
         <div class="card w-100 text-center">
           <div class="card-body">
-            <img src="../assets/gump.webp" class="m-4 w-50" alt="">
-            <hr>
-            <h3 class="card-title">{{ book.name }}</h3>
+            <img :src="imageUrl(book._id)" class=" w-50" alt="" />
+            <h3 class="card-title mt-4">{{ book.name }}</h3>
             <p>{{ book.author }}</p>
             <p>{{ book.publication }}</p>
             <router-link :to="`/books/${book._id}`" class="btn button-brown"
@@ -71,8 +70,13 @@ export default {
     },
     anyResult() {
       return this.displayedBooks.some(() => true);
-    },
+    }
   },
+  methods: {
+    imageUrl(bookId) {
+        return api.getImageUrl(bookId);
+      },
+  }
 };
 </script>
 

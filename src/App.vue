@@ -2,6 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <router-link to="/" class="navbar-brand roboto-slab">Databáze knih</router-link>
+      <router-link to="/books/create" class="nav-link text-dark">Nová kniha</router-link>
     </div>
   </nav>
   <router-view />
