@@ -3,22 +3,32 @@
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <input type="text" class="form-control" id="search-field" placeholder="Hledání" v-model="bookFilter">
+          <input
+            type="text"
+            class="form-control"
+            id="search-field"
+            placeholder="Hledání"
+            v-model="bookFilter"
+          />
           <small>Vyhledávat můžete podle názvu knihy nebo jména autora.</small>
         </div>
       </div>
     </div>
-    <hr class="my-4">
+    <hr class="my-4" />
     <div class="row" v-if="anyResult">
-      <div class="col-lg-3 col-md-6 col-12 d-flex align-items-stretch py-2" v-for="book in displayedBooks"
-           :key="book._id">
-        <div class="card w-100">
+      <div
+        class="col-lg-3 col-md-6 col-12 d-flex align-items-stretch py-2"
+        v-for="book in displayedBooks"
+        :key="book._id"
+      >
+        <div class="card w-100 text-center">
           <div class="card-body">
-            <h5 class="card-title">{{ book.name }}</h5>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{ book.author }}</li>
-              <li class="list-group-item">{{ book.publication }}</li>
-            </ul>
+            <h3 class="card-title">{{ book.name }}</h3>
+            <p>{{ book.author }}</p>
+            <p>{{ book.publication }}</p>
+            <router-link :to="`/books/${book._id}`" class="btn button-brown"
+              >Zobrazit</router-link
+            >
           </div>
         </div>
       </div>
@@ -32,38 +42,51 @@
 </template>
 
 <script>
-import api from '../api/api'
+import api from "../api/api";
 
 export default {
-  name: 'Books',
-  data () {
+  name: "Books",
+  data() {
     return {
       books: [],
-      bookFilter: ''
-    }
+      bookFilter: "",
+    };
   },
-  created () {
-    api.getBooks().then(response => (this.books = response.data))
+  created() {
+    api.getBooks().then((response) => (this.books = response.data));
   },
   computed: {
-    displayedBooks () {
+    displayedBooks() {
       if (this.bookFilter) {
-        return this.books.filter((book) =>
-          book.name.toLowerCase().includes(this.bookFilter.toLowerCase()) ||
-          book.author.toLowerCase().includes(this.bookFilter.toLowerCase()))
+        return this.books.filter(
+          (book) =>
+            book.name.toLowerCase().includes(this.bookFilter.toLowerCase()) ||
+            book.author.toLowerCase().includes(this.bookFilter.toLowerCase())
+        );
       } else {
-        return this.books
+        return this.books;
       }
     },
-    anyResult () {
-      return this.displayedBooks.some(() => true)
-    }
-  }
-}
+    anyResult() {
+      return this.displayedBooks.some(() => true);
+    },
+  },
+};
 </script>
 
 <style>
 #search-field {
-  border: solid 2px #5CB85C;
+  border: solid 2px #d9aa63;
+}
+.color-dark {
+  background-color: #d9aa63;
+}
+.button-brown {
+  background-color: #d9aa63;
+  color: #fbf6ef;
+}
+.button-brown:hover {
+  background-color: #efddc0;
+  color: #ad884f;
 }
 </style>

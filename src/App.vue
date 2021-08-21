@@ -8,11 +8,16 @@
 </template>
 
 <style>
+body{
+  background-color: rgb(242,229,208);
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+}
+h1, h2, h3{
+  font-family: 'Roboto Slab', serif;
 }
 </style>

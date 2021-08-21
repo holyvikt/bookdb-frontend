@@ -6,7 +6,7 @@ const api = {
     return axios.get(`${config.apiUrl}/books`)
   },
   getBook (bookId) {
-    return axios.get(`${config.apiUrl}/book/${bookId}`)
+    return axios.get(`${config.apiUrl}/books/${bookId}`)
   }
 }
 
