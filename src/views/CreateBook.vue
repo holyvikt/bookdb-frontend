@@ -88,7 +88,7 @@ export default {
           this.file = null
           // TODO redirect to new book page
         })
-        .catch(()=> this.showErrorNotification("Knihu se nepodařilo vložit"))
+        .catch(() => this.showErrorNotification("Knihu se nepodařilo vložit"))
     },
   },
 };
