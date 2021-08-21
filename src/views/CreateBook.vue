@@ -86,7 +86,7 @@ export default {
         .post("http://localhost:5000/api/v1/books", formData)
         .then((response) => {
           this.file = null
-          // TODO redirect to new book page
+          this.$router.push({name: 'Book', params: {book: response.data._id}})
         })
         .catch(() => this.showErrorNotification("Knihu se nepodařilo vložit"))
     },
