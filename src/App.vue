@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <router-link to="/" class="navbar-brand">Databáze knih</router-link>
+      <router-link to="/" class="navbar-brand roboto-slab">Databáze knih</router-link>
     </div>
   </nav>
   <router-view />
@@ -19,5 +19,22 @@ body{
 }
 h1, h2, h3{
   font-family: 'Roboto Slab', serif;
+}
+.roboto-slab{
+    font-family: 'Roboto Slab', serif;
+}
+.color-dark {
+  background-color: #d9aa63;
+}
+.button-brown {
+  background-color: #d9aa63;
+  color: #fbf6ef;
+}
+.button-brown:hover {
+  background-color: #efddc0;
+  color: #ad884f;
+}
+.col-rounded-corners {
+  border-radius: 10px;
 }
 </style>

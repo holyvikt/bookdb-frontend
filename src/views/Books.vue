@@ -23,6 +23,8 @@
       >
         <div class="card w-100 text-center">
           <div class="card-body">
+            <img src="../assets/gump.webp" class="m-4 w-50" alt="">
+            <hr>
             <h3 class="card-title">{{ book.name }}</h3>
             <p>{{ book.author }}</p>
             <p>{{ book.publication }}</p>
@@ -77,16 +79,5 @@ export default {
 <style>
 #search-field {
   border: solid 2px #d9aa63;
-}
-.color-dark {
-  background-color: #d9aa63;
-}
-.button-brown {
-  background-color: #d9aa63;
-  color: #fbf6ef;
-}
-.button-brown:hover {
-  background-color: #efddc0;
-  color: #ad884f;
 }
 </style>
