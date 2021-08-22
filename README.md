@@ -1,4 +1,4 @@
-# Databáze knih - frontend
+# BookDB - frontend
 
 Vue 3, Boostrap 5
 
