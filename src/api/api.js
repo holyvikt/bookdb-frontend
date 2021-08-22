@@ -13,6 +13,12 @@ const api = {
   },
   deleteBook(bookId) {
     return axios.delete(`${config.apiUrl}/books/${bookId}`)
+  },
+  postBook(formData){
+    return axios.post(`${config.apiUrl}/books`, formData)
+  },
+  putBook(bookId, formData){
+    return axios.put(`${config.apiUrl}/books/${bookId}`, formData)
   }
 }
 

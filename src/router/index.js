@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Books from '../views/Books.vue'
 import Book from '../views/Book.vue'
 import CreateBook from '../views/CreateBook.vue'
+import EditBook from '../views/EditBook.vue'
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/books/create',
     name: 'CreateBook',
     component: CreateBook
+  },
+  {
+    path: '/books/:book/edit',
+    name: 'EditBook',
+    component: EditBook
   }
 ]
 

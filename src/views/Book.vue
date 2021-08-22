@@ -19,7 +19,7 @@
     </div>
     <div class="row mb-5">
       <div class="col text-end">
-        <button class="btn button-brown m-1">Upravit</button>
+        <router-link :to="`/books/${book._id}/edit`" class="btn button-brown m-1">Upravit</router-link>
         <button class="btn btn-outline-danger m-1" v-on:click="deleteBook">Smazat</button>
       </div>
     </div>
