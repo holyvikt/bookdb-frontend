@@ -1,4 +1,6 @@
-# bookdb-fronted
+# Databáze knih - frontend
+
+Vue 3, Boostrap 5
 
 ## Project setup
 ```

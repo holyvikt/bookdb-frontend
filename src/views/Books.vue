@@ -36,7 +36,7 @@
     </div>
     <div class="row" v-else>
       <div class="col text-center">
-        <h2>Vyhledávání neodpovídá žádný záznam</h2>
+        <h2>Žádný záznam :-(</h2>
       </div>
     </div>
   </div>
