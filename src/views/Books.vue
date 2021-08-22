@@ -18,12 +18,23 @@
     <div class="row" v-if="anyResult">
       <div
         class="col-lg-3 col-md-6 col-12 d-flex align-items-stretch py-2"
-        v-for="book in displayedBooks"
+        v-for="book in filteredBooks"
         :key="book._id"
       >
         <div class="card w-100 text-center">
           <div class="card-body">
-            <img :src="imageUrl(book._id)" class=" w-50" alt="" />
+            <img
+              v-if="book.image !== ''"
+              :src="imageUrl(book._id)"
+              class="book-icon"
+              alt=""
+            />
+            <img
+              v-else
+              src="../assets/book-mock.png"
+              class="book-icon"
+              alt=""
+            />
             <h3 class="card-title mt-4">{{ book.name }}</h3>
             <p>{{ book.author }}</p>
             <p>{{ book.publication }}</p>
@@ -57,7 +68,7 @@ export default {
     api.getBooks().then((response) => (this.books = response.data));
   },
   computed: {
-    displayedBooks() {
+    filteredBooks() {
       if (this.bookFilter) {
         return this.books.filter(
           (book) =>
@@ -69,19 +80,22 @@ export default {
       }
     },
     anyResult() {
-      return this.displayedBooks.some(() => true);
-    }
+      return this.filteredBooks.some(() => true);
+    },
   },
   methods: {
     imageUrl(bookId) {
-        return api.getImageUrl(bookId);
-      },
-  }
+      return api.getImageUrl(bookId);
+    },
+  },
 };
 </script>
 
 <style>
 #search-field {
   border: solid 2px #d9aa63;
+}
+.book-icon{
+  height: 200px;
 }
 </style>

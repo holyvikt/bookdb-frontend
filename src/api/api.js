@@ -10,6 +10,9 @@ const api = {
   },
   getImageUrl(bookId) {
     return `${config.apiUrl}/books/${bookId}/image`;
+  },
+  deleteBook(bookId) {
+    return axios.delete(`${config.apiUrl}/books/${bookId}`)
   }
 }
 

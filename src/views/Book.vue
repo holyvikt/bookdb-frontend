@@ -2,7 +2,8 @@
   <div class="container">
     <div class="row py-5">
       <div class="col-lg-6 my-3 text-center">
-        <img :src="imageUrl" class="book-img w-50" alt="" />
+        <img v-if="book.image" :src="imageUrl" class="book-shadow w-50" alt="" />
+        <img v-else src="../assets/book-mock.png" class="w-50" alt="" />
       </div>
       <div class="col-lg-6 bg-light my-3 p-md-4 p-2 col-rounded-corners">
         <h1>{{ book.name }}</h1>
@@ -16,9 +17,10 @@
         </p>
       </div>
     </div>
-    <div class="row">
+    <div class="row mb-5">
       <div class="col text-end">
-        <button class="btn button-brown">Upravit</button>
+        <button class="btn button-brown m-1">Upravit</button>
+        <button class="btn btn-outline-danger m-1" v-on:click="deleteBook">Smazat</button>
       </div>
     </div>
   </div>
@@ -26,9 +28,11 @@
 
 <script>
 import api from "../api/api";
+import toasterNotificationMixin from '../mixins/toasterNotificationMixin';
 
 export default {
   name: "Book",
+  mixins: [toasterNotificationMixin],
   data() {
     return {
       book: {},
@@ -44,11 +48,17 @@ export default {
       return api.getImageUrl(this.$route.params.book);
     },
   },
+  methods: {
+    deleteBook(){
+      api.deleteBook(this.book._id)
+      .then(() => (this.$router.push('/')))
+      .catch(() => (this.showErrorNotification('Knihu nelze smazat')))
+    }
+  }
 };
 </script>
-
 <style>
-.book-img {
+.book-shadow {
   box-shadow: 20px -10px 10px #e8cca1;
 }
 </style>
