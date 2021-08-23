@@ -27,7 +27,6 @@ export default {
           .putBook(this.$route.params.book, formData)
           .then((response) => {
             this.file = null;
-            //this.book = response.data;
             this.$router.push({name: 'Book', params: {book: response.data._id}})
             this.showSuccessNotification("Kniha úspěšně aktualizována");
           })
