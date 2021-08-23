@@ -9,12 +9,6 @@
         <h1>{{ book.name }}</h1>
         <h3>{{ book.author }}</h3>
         <h3>{{ book.publication }}</h3>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores
-          totam perspiciatis quia fugiat aliquam incidunt illo obcaecati
-          explicabo, eveniet beatae voluptas, eaque voluptate iusto maxime
-          facilis! Similique laboriosam cum tempora!
-        </p>
       </div>
     </div>
     <div class="row mb-5">

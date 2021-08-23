@@ -23,13 +23,18 @@ export default {
     return {
       book: {},
       saveCallback: (formData) => {
-          api.putBook(this.$route.params.book, formData)
+        api
+          .putBook(this.$route.params.book, formData)
           .then((response) => {
-          this.file = null;
-          this.showSuccessNotification('Kniha úspěšně aktualizována')
-        })
-        .catch(() => this.showErrorNotification("Knihu se nepodařilo aktualizovat"));
-      }
+            this.file = null;
+            //this.book = response.data;
+            this.$router.push({name: 'Book', params: {book: response.data._id}})
+            this.showSuccessNotification("Kniha úspěšně aktualizována");
+          })
+          .catch(() =>
+            this.showErrorNotification("Knihu se nepodařilo aktualizovat")
+          );
+      },
     };
   },
   created() {

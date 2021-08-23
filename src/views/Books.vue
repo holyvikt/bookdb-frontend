@@ -21,28 +21,7 @@
         v-for="book in filteredBooks"
         :key="book._id"
       >
-        <div class="card w-100 text-center">
-          <div class="card-body">
-            <img
-              v-if="book.image !== ''"
-              :src="imageUrl(book._id)"
-              class="book-icon"
-              alt=""
-            />
-            <img
-              v-else
-              src="../assets/book-mock.png"
-              class="book-icon"
-              alt=""
-            />
-            <h3 class="card-title mt-4">{{ book.name }}</h3>
-            <p>{{ book.author }}</p>
-            <p>{{ book.publication }}</p>
-            <router-link :to="`/books/${book._id}`" class="btn button-brown"
-              >Zobrazit</router-link
-            >
-          </div>
-        </div>
+        <BookCard :book="book" />
       </div>
     </div>
     <div class="row" v-else>
@@ -55,9 +34,11 @@
 
 <script>
 import api from "../api/api";
+import BookCard from "../components/BookCard.vue";
 
 export default {
   name: "Books",
+  components: { BookCard },
   data() {
     return {
       books: [],
@@ -83,11 +64,6 @@ export default {
       return this.filteredBooks.some(() => true);
     },
   },
-  methods: {
-    imageUrl(bookId) {
-      return api.getImageUrl(bookId);
-    },
-  },
 };
 </script>
 
@@ -95,7 +71,7 @@ export default {
 #search-field {
   border: solid 2px #d9aa63;
 }
-.book-icon{
+.book-icon {
   height: 200px;
 }
 </style>
